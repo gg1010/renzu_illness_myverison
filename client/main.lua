@@ -1,12 +1,22 @@
 local usingitem = false
-exports('useItem', function(data, slot)
-    exports.ox_inventory:useItem(data, function(data)
+-- exports('useItem', function(data, slot)
+--     exports.ox_inventory:useItem(data, function(data)
+-- 		usingitem = true
+-- 		TreatPatient(data.name)
+-- 		Wait(5000)
+-- 		usingitem = false
+-- 	end)
+-- end)
+
+exports('useItem', function(data, source)
+	QBCore.Functions.CreateUseableItem(useitem, function (source, item)
 		usingitem = true
 		TreatPatient(data.name)
 		Wait(5000)
 		usingitem = false
 	end)
 end)
+		
 
 TreatPatient = function(item)
 	if item == 'multivitamins' then
